@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -31,8 +31,8 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Clicky – hello from the editor!', 'clicky' ) }
-		</p>
+		<div { ...useBlockProps() }>
+			<InnerBlocks template={[["imaszclicky/clicky-button", {}]]} allowedBlocks={["imaszclicky/clicky-button"]} />
+		</div>
 	);
 }

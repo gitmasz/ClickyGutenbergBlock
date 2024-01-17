@@ -52,9 +52,12 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 function Edit() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Clicky – hello from the editor!', 'clicky'));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+    template: [["imaszclicky/clicky-button", {}]],
+    allowedBlocks: ["imaszclicky/clicky-button"]
+  }));
 }
 
 /***/ }),

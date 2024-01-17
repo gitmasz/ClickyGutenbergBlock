@@ -6,8 +6,12 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-imaszclicky-clickyblock {
+.wp-block-imaszclicky-clicky-group {
+  padding: 40px;
   border: 1px dotted #f00;
+}
+.wp-block-imaszclicky-clicky-group .components-button svg {
+  fill: #000;
 }
 
 /*# sourceMappingURL=index.css.map*/

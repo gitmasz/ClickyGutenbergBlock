@@ -54,7 +54,7 @@ __webpack_require__.r(__webpack_exports__);
 function Edit() {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Clicky – hello from the editor!', 'clicky'));
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Clicky Block', 'clicky'));
 }
 
 /***/ }),
@@ -225,7 +225,7 @@ module.exports = window["wp"]["i18n"];
   \********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-button","version":"0.1.0","title":"Clicky button","category":"widgets","icon":"smiley","description":"A call to action button that links to a particular post or page rather than hardcoding the destination URL.","supports":{"html":false},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-button","version":"0.1.0","title":"Clicky button","category":"widgets","icon":"smiley","description":"A call to action button that links to a particular post or page rather than hardcoding the destination URL.","supports":{"html":false},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php","parent":["imaszclicky/clicky-group"]}');
 
 /***/ })
 
