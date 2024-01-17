@@ -1,17 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/clicky",
+	"name": "imaszclicky/clickyblock",
 	"version": "0.1.0",
-	"title": "Clicky",
+	"title": "Clicky Block",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "A group of Clicky buttons that link to a particular post of page rather than hardcoding the destination URL.",
 	"example": {},
 	"supports": {
 		"html": false
 	},
-	"textdomain": "clicky",
+	"textdomain": "imaszclicky",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

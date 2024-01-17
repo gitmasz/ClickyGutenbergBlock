@@ -1,10 +1,10 @@
 {
-	"name": "clicky",
+	"name": "imaszclicky",
 	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool.",
-	"author": "The WordPress Contributors",
+	"description": "Example block named Clicky scaffolded with Create Block tool.",
+	"author": "TMarcin Szczepkowski",
 	"license": "GPL-2.0-or-later",
-	"main": "build/index.js",
+	"main": "build/blocks/clickyGroup/index.js",
 	"scripts": {
 		"build": "wp-scripts build",
 		"format": "wp-scripts format",
