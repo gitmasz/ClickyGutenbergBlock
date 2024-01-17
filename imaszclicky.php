@@ -26,5 +26,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function imaszclicky_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/clickyGroup' );
+	register_block_type( __DIR__ . '/build/blocks/clickyButton' );
 }
 add_action( 'init', 'imaszclicky_block_init' );
