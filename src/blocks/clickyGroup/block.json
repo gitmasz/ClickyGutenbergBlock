@@ -1,13 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "imaszclicky/clickyblock",
+	"name": "imaszclicky/clicky-group",
 	"version": "0.1.0",
-	"title": "Clicky Block",
+	"title": "Clicky group",
 	"category": "widgets",
 	"icon": "smiley",
 	"description": "A group of Clicky buttons that link to a particular post of page rather than hardcoding the destination URL.",
-	"example": {},
 	"supports": {
 		"html": false
 	},
@@ -15,5 +14,6 @@
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
 }
