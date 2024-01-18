@@ -24,6 +24,24 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
+function convert_custom_properties($value)
+{
+	$prefix     = 'var:';
+	$prefix_len = strlen($prefix);
+	$token_in   = '|';
+	$token_out  = '--';
+	if (str_starts_with($value, $prefix)) {
+		$unwrapped_name = str_replace(
+			$token_in,
+			$token_out,
+			substr($value, $prefix_len)
+		);
+		$value          = "var(--wp--$unwrapped_name)";
+	}
+
+	return $value;
+}
+
 function imaszclicky_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/clickyGroup' );
 	register_block_type( __DIR__ . '/build/blocks/clickyButton' );

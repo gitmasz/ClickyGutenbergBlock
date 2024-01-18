@@ -4,7 +4,6 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -15,10 +14,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save() {
-	return (
-		<p { ...useBlockProps.save() }>
-			{ 'Clicky – hello from the saved content!' }
-		</p>
-	);
+export default function Save() {
+	return null;
 }
