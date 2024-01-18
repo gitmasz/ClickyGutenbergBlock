@@ -8,9 +8,8 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-imaszclicky-clicky-group {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

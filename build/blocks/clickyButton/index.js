@@ -225,7 +225,7 @@ module.exports = window["wp"]["i18n"];
   \********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-button","version":"0.1.0","title":"Clicky button","category":"widgets","icon":"smiley","description":"A call to action button that links to a particular post or page rather than hardcoding the destination URL.","supports":{"html":false},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php","parent":["imaszclicky/clicky-group"]}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-button","version":"0.1.0","title":"Clicky button","category":"widgets","icon":"smiley","description":"A call to action button that links to a particular post or page rather than hardcoding the destination URL.","supports":{"html":false,"color":{"background":true,"text":true,"link":false,"gradients":true,"enableContrastChecker":true},"spacing":{"padding":true}},"attributes":{"style":{"type":"object","default":{"color":{"background":"#000000","text":"#FFFFFF"},"spacing":{"padding":{"top":"15px","bottom":"15px","left":"15px","right":"15px"}}}}},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php","parent":["imaszclicky/clicky-group"]}');
 
 /***/ })
 

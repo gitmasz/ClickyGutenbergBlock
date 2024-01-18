@@ -20,7 +20,7 @@ import {
  */
 export default function save() {
 	const blockProps = useBlockProps.save();
-	const innerBlocksProps = useInnerBlocksProps.save(blockProps);
+	const {children} = useInnerBlocksProps.save(blockProps);
 
-	return innerBlocksProps.children;
+	return children;
 }

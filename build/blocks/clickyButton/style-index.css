@@ -8,9 +8,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-imaszclicky-clicky-button {
-  background-color: #21759b;
+  background: #000;
   color: #fff;
-  padding: 2px;
+  padding: 15px;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
