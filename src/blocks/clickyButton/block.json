@@ -21,6 +21,9 @@
 		}
 	},
 	"attributes": {
+		"linkedPost": {
+			"type": "number"
+		},
 		"postType": {
 			"type": "string",
 			"default": ""

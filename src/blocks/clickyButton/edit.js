@@ -46,7 +46,19 @@ export default function Edit(props) {
 			(item) => item.visibility.show_in_nav_menus && item.visibility.show_ui
 		);
 	});
-	console.log(postTypes)
+	const posts = useSelect(
+		(select) => {
+			const data = select("core").getEntityRecords(
+				"postType",
+				props.attributes.postType,
+				{
+					per_page: -1,
+				}
+			);
+			return data;
+		},
+		[props.attributes.postType]
+	);
 
 	const blockProps = useBlockProps();
 
@@ -72,6 +84,27 @@ export default function Edit(props) {
 							}))
 						]}
 					/>
+					{!!props.attributes.postType && (
+						<SelectControl
+							label={`${__('Linked ', metadata.textdomain)} ${props.attributes.postType}`}
+							value={props.attributes.linkedPost}
+							onChange={(newValue) => {
+								props.setAttributes({
+									linkedPost: newValue ? parseInt(newValue) : null,
+								});
+							}}
+							options={[
+								{
+									label: `${__('Select a ', metadata.textdomain)} ${props.attributes.postType} ${__(' to link to', metadata.textdomain)}`,
+									value: "",
+								},
+								...(posts || []).map((post) => ({
+									label: post.title.rendered,
+									value: post.id,
+								})),
+							]}
+						/>
+					)}
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>

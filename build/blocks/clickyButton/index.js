@@ -109,7 +109,12 @@ function Edit(props) {
     });
     return data?.filter(item => item.visibility.show_in_nav_menus && item.visibility.show_ui);
   });
-  console.log(postTypes);
+  const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
+    const data = select("core").getEntityRecords("postType", props.attributes.postType, {
+      per_page: -1
+    });
+    return data;
+  }, [props.attributes.postType]);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Destination', _block_json__WEBPACK_IMPORTED_MODULE_6__.textdomain)
@@ -127,6 +132,21 @@ function Edit(props) {
     }, ...(postTypes || []).map(postType => ({
       label: postType.labels.singular_name,
       value: postType.slug
+    }))]
+  }), !!props.attributes.postType && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: `${(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Linked ', _block_json__WEBPACK_IMPORTED_MODULE_6__.textdomain)} ${props.attributes.postType}`,
+    value: props.attributes.linkedPost,
+    onChange: newValue => {
+      props.setAttributes({
+        linkedPost: newValue ? parseInt(newValue) : null
+      });
+    },
+    options: [{
+      label: `${(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select a ', _block_json__WEBPACK_IMPORTED_MODULE_6__.textdomain)} ${props.attributes.postType} ${(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(' to link to', _block_json__WEBPACK_IMPORTED_MODULE_6__.textdomain)}`,
+      value: ""
+    }, ...(posts || []).map(post => ({
+      label: post.title.rendered,
+      value: post.id
     }))]
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
@@ -339,7 +359,7 @@ module.exports = window["wp"]["i18n"];
   \********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-button","version":"0.1.0","title":"Clicky button","category":"widgets","icon":"smiley","description":"A call to action button that links to a particular post or page rather than hardcoding the destination URL.","supports":{"html":false,"color":{"background":true,"text":true,"link":false,"gradients":true,"enableContrastChecker":true},"spacing":{"padding":true}},"attributes":{"postType":{"type":"string","default":""},"labelText":{"type":"string","default":""},"style":{"type":"object","default":{"color":{"background":"#000000","text":"#FFFFFF"},"spacing":{"padding":{"top":"15px","bottom":"15px","left":"15px","right":"15px"}}}}},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php","parent":["imaszclicky/clicky-group"]}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-button","version":"0.1.0","title":"Clicky button","category":"widgets","icon":"smiley","description":"A call to action button that links to a particular post or page rather than hardcoding the destination URL.","supports":{"html":false,"color":{"background":true,"text":true,"link":false,"gradients":true,"enableContrastChecker":true},"spacing":{"padding":true}},"attributes":{"linkedPost":{"type":"number"},"postType":{"type":"string","default":""},"labelText":{"type":"string","default":""},"style":{"type":"object","default":{"color":{"background":"#000000","text":"#FFFFFF"},"spacing":{"padding":{"top":"15px","bottom":"15px","left":"15px","right":"15px"}}}}},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php","parent":["imaszclicky/clicky-group"]}');
 
 /***/ })
 
