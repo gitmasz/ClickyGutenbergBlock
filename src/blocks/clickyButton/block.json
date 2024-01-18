@@ -21,6 +21,10 @@
 		}
 	},
 	"attributes": {
+		"postType": {
+			"type": "string",
+			"default": ""
+		},
 		"labelText": {
 			"type": "string",
 			"default": ""
