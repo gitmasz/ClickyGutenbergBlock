@@ -19,6 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/clickyButton/editor.scss");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/blocks/clickyButton/block.json");
 
 /**
  * Retrieves the translation of text.
@@ -51,10 +52,24 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function Edit() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Clicky Block', 'clicky'));
+
+function Edit(props) {
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ...blockProps
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Label text', _block_json__WEBPACK_IMPORTED_MODULE_4__.textdomain),
+    value: props.attributes.labelText,
+    allowedFormats: [],
+    multiline: false,
+    onSplit: () => {},
+    onReplace: () => {},
+    onChange: newValue => {
+      props.setAttributes({
+        labelText: newValue
+      });
+    }
+  }));
 }
 
 /***/ }),
@@ -225,7 +240,7 @@ module.exports = window["wp"]["i18n"];
   \********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-button","version":"0.1.0","title":"Clicky button","category":"widgets","icon":"smiley","description":"A call to action button that links to a particular post or page rather than hardcoding the destination URL.","supports":{"html":false,"color":{"background":true,"text":true,"link":false,"gradients":true,"enableContrastChecker":true},"spacing":{"padding":true}},"attributes":{"style":{"type":"object","default":{"color":{"background":"#000000","text":"#FFFFFF"},"spacing":{"padding":{"top":"15px","bottom":"15px","left":"15px","right":"15px"}}}}},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php","parent":["imaszclicky/clicky-group"]}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-button","version":"0.1.0","title":"Clicky button","category":"widgets","icon":"smiley","description":"A call to action button that links to a particular post or page rather than hardcoding the destination URL.","supports":{"html":false,"color":{"background":true,"text":true,"link":false,"gradients":true,"enableContrastChecker":true},"spacing":{"padding":true}},"attributes":{"labelText":{"type":"string","default":""},"style":{"type":"object","default":{"color":{"background":"#000000","text":"#FFFFFF"},"spacing":{"padding":{"top":"15px","bottom":"15px","left":"15px","right":"15px"}}}}},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php","parent":["imaszclicky/clicky-group"]}');
 
 /***/ })
 

@@ -11,7 +11,10 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	RichText
+} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,10 +32,26 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+import metadata from './block.json';
+
+export default function Edit(props) {
+	const blockProps = useBlockProps();
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Clicky Block', 'clicky' ) }
-		</p>
+		<div {...blockProps}>
+			<RichText
+				placeholder={__('Label text', metadata.textdomain)}
+				value={props.attributes.labelText}
+				allowedFormats={[]}
+				multiline={false}
+				onSplit={() => {}}
+				onReplace={() => {}}
+				onChange={(newValue) => {
+					props.setAttributes({
+						labelText: newValue,
+					});
+				}}
+			/>
+		</div>
 	);
 }

@@ -21,6 +21,10 @@
 		}
 	},
 	"attributes": {
+		"labelText": {
+			"type": "string",
+			"default": ""
+		},
 		"style": {
 			"type": "object",
 			"default": {
