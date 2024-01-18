@@ -57,16 +57,25 @@ function Edit(props) {
   const blockGap = (0,_utils_parseValue__WEBPACK_IMPORTED_MODULE_4__.parseValue)(props.attributes.style?.spacing?.blockGap || "");
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
     style: {
-      gap: blockGap
+      gap: blockGap,
+      justifyContent: props.attributes.justifyContent
     }
   });
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)(blockProps, {
     template: [["imaszclicky/clicky-button", {}]],
     allowedBlocks: ["imaszclicky/clicky-button"]
   });
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.JustifyContentControl, {
+    value: props.attributes.justifyContent,
+    allowedControls: ["left", "center", "right"],
+    onChange: newValue => {
+      props.setAttributes({
+        justifyContent: newValue
+      });
+    }
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...innerBlocksProps
-  });
+  }));
 }
 
 /***/ }),
@@ -257,7 +266,7 @@ module.exports = window["wp"]["i18n"];
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-group","version":"0.1.0","title":"Clicky group","category":"widgets","icon":"smiley","description":"A group of Clicky buttons that link to a particular post of page rather than hardcoding the destination URL.","supports":{"html":false,"spacing":{"blockGap":true}},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-group","version":"0.1.0","title":"Clicky group","category":"widgets","icon":"smiley","description":"A group of Clicky buttons that link to a particular post of page rather than hardcoding the destination URL.","supports":{"html":false,"spacing":{"blockGap":true}},"attributes":{"justifyContent":{"type":"string","enum":["left","center","right"],"default":"left"}},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php"}');
 
 /***/ })
 

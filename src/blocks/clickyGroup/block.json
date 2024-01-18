@@ -13,6 +13,13 @@
 			"blockGap": true
 		}
 	},
+	"attributes": {
+		"justifyContent": {
+			"type": "string",
+			"enum": ["left", "center", "right"],
+			"default": "left"
+		}
+	},
 	"textdomain": "imaszclicky",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
