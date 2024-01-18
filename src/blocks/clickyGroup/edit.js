@@ -32,8 +32,13 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
-	const blockProps = useBlockProps();
+import { parseValue } from "../../utils/parseValue";
+
+export default function Edit(props) {
+	const blockGap = parseValue(props.attributes.style?.spacing?.blockGap || "");
+	const blockProps = useBlockProps({
+		style: { gap: blockGap },
+	});
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		template: [["imaszclicky/clicky-button", {}]],
 		allowedBlocks: ["imaszclicky/clicky-button"]

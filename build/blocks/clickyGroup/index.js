@@ -19,6 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/clickyGroup/editor.scss");
+/* harmony import */ var _utils_parseValue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/parseValue */ "./src/utils/parseValue.js");
 
 /**
  * Retrieves the translation of text.
@@ -51,8 +52,14 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function Edit() {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
+
+function Edit(props) {
+  const blockGap = (0,_utils_parseValue__WEBPACK_IMPORTED_MODULE_4__.parseValue)(props.attributes.style?.spacing?.blockGap || "");
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+    style: {
+      gap: blockGap
+    }
+  });
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)(blockProps, {
     template: [["imaszclicky/clicky-button", {}]],
     allowedBlocks: ["imaszclicky/clicky-button"]
@@ -159,6 +166,27 @@ function save() {
 
 /***/ }),
 
+/***/ "./src/utils/parseValue.js":
+/*!*********************************!*\
+  !*** ./src/utils/parseValue.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   parseValue: () => (/* binding */ parseValue)
+/* harmony export */ });
+const parseValue = value => {
+  if (value.indexOf("var:") === 0) {
+    const varValue = value.split(":")[1].split("|").join("--");
+    // preset--spacing--40
+    return `var(--wp--${varValue})`;
+  }
+  return value;
+};
+
+/***/ }),
+
 /***/ "./src/blocks/clickyGroup/editor.scss":
 /*!********************************************!*\
   !*** ./src/blocks/clickyGroup/editor.scss ***!
@@ -229,7 +257,7 @@ module.exports = window["wp"]["i18n"];
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-group","version":"0.1.0","title":"Clicky group","category":"widgets","icon":"smiley","description":"A group of Clicky buttons that link to a particular post of page rather than hardcoding the destination URL.","supports":{"html":false},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"imaszclicky/clicky-group","version":"0.1.0","title":"Clicky group","category":"widgets","icon":"smiley","description":"A group of Clicky buttons that link to a particular post of page rather than hardcoding the destination URL.","supports":{"html":false,"spacing":{"blockGap":true}},"textdomain":"imaszclicky","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php"}');
 
 /***/ })
 
