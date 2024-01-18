@@ -3,4 +3,4 @@ WordPress Plugin with example Gutenberg block named Clicky Block scaffolded with
 
 # Block Preview
 
-![Clicky Gutenberg Block Preview](https://github.com/gitmasz/ClickyGutenbergBlock/blob/master/curvy-block-preview.png?raw=true)
+![Clicky Gutenberg Block Preview](https://github.com/gitmasz/ClickyGutenbergBlock/blob/master/clicky-block-preview.png?raw=true)
