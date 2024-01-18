@@ -22,7 +22,7 @@ import './style.scss';
 import Edit from './edit';
 import save from './save';
 import metadata from './block.json';
-// import icon from './assets/icon.svg';
+import icon from './assets/clickyGroup.svg';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -39,5 +39,5 @@ registerBlockType( metadata.name, {
 	 * @see ./save.js
 	 */
 	save,
-	// icon: <img src={icon} />
+	icon: <img src={icon} />
 } );
