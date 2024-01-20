@@ -33,6 +33,26 @@ final class iMaSzClicky {
 			register_block_type( __DIR__ . '/build/blocks/clickyGroup' );
 			register_block_type( __DIR__ . '/build/blocks/clickyButton' );
 		});
+
+		register_block_pattern_category('imaszclicky', array(
+			'label' => __('iMaSz Clicky', 'imaszclicky')
+		));
+		register_block_pattern('imaszclicky/clicky-example', array(
+			'categories' => array('call-to-action', 'imaszclicky'),
+			'title' => __('Clicky CTA', 'imaszclicky'),
+			'description' => __('A heading, paragraph, and clicky button block', 'imaszclicky'),
+			'content' => '<!-- wp:heading -->
+			<h2 class="wp-block-heading">Example Title</h2>
+			<!-- /wp:heading -->
+			
+			<!-- wp:paragraph -->
+			<p>Example lorem ipsum text.</p>
+			<!-- /wp:paragraph -->
+			
+			<!-- wp:imaszclicky/clicky-group -->
+			<!-- wp:imaszclicky/clicky-button {"labelText":"Call to action","style":{"color":{"background":"#000000","text":"#FFFFFF"},"spacing":{"padding":{"top":"10px","bottom":"10px","left":"20px","right":"20px"}}}} /-->
+			<!-- /wp:imaszclicky/clicky-group -->'
+		));
 	}
 
 	static function convert_custom_properties($value)

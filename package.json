@@ -2,7 +2,7 @@
 	"name": "imaszclicky",
 	"version": "0.1.0",
 	"description": "Example block named Clicky scaffolded with Create Block tool.",
-	"author": "TMarcin Szczepkowski",
+	"author": "Marcin Szczepkowski",
 	"license": "GPL-2.0-or-later",
 	"main": "build/blocks/clickyGroup/index.js",
 	"scripts": {
